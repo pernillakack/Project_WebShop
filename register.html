@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Register</title>
+</head>
+<body>
+    <header>
+        <h1>Register</h1>
+        <br>
+        <a href="index.html">Back to shop</a>
+        <br>
+        <a href="admin.html">Administration</a>
+        <br><br>
+    </header>   
+    <h3>You want to buy the following article number: <p id="article"> </p> <p id="title"></p></h3>
+
+    <h4>First you need to fill out the following form:</h4><br>
+
+    <form id="register">
+        <input type="text" name="userName" id="userName" required placeholder="Type your name..."><br>
+        <br>
+        <input type="email" name="email" id="email" required placeholder="Type your email...">
+        <br><br>
+        <input type="text" name="adress" id="adress" required placeholder="Type your adress...">
+        <br><br>
+        <select name="shipping" id="shipping" required>
+            <option value="choose" value disabled selected>Choose</option>
+            <option value="Express">Express</option>
+            <option value="Mail">Mail</option>
+            <option value="Get in store">Get in store</option>
+        </select>
+        <br><br>
+        <input type="button" name="orderButton" id="orderButton" value="Send"> 
+    </form>
+    <br><br>
+    <h5 id="confirm"></h5>
+
+        <footer>
+            <p>Copyright 2023</p>
+        </footer>
+
+    <script src="app_register.js"></script>
+</body>
+</html>
