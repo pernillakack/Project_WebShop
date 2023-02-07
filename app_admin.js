@@ -112,7 +112,7 @@ function confirmChanges(data) {
         Shipping: '${shipping}' <br>
         Articlenr: '${article}'</p>
     `
-
+    orderEl.reset();
 }
 
 function deleteOrder() {

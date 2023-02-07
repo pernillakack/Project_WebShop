@@ -35,11 +35,16 @@
         <input type='text' name='newAdress' id='newAdress' required placeholder='Type your adress...'>
         <br><br>
         <p id="shipping"></p>
-        <input type='text' name='newShipping' id='newShipping' required placeholder='Choose new shipping...'>
+        <select name="newShipping" id="newShipping" required>
+            <option value="Choose" value disabled selected>Choose</option>
+            <option value="Express">Express</option>
+            <option value="Mail">Mail</option>
+            <option value="Get in store">Get in store</option>
+        </select>
         <br><br>
         <input type='button' name ='changeButton' id='changeButton' value='Submit change'>
         <br><br>
-        <input type='button' name='deleteButton' id='deleteButton' value='Delete order'>
+        <input type='submit' name='deleteButton' id='deleteButton' value='Delete order'>
     </form>
     <section id ="confirmChanges"></section>
     <section id ="confirmDelete"></section>
