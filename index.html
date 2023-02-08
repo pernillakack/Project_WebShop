@@ -16,10 +16,24 @@
         <a href="register.html">Register</a>
     </header>
     <br><br>
-    <section id="container" >
+    <menu >
+        <label for="category">Choose category:</label><br>
+        <select name="category" id="category" onchange="chooseCategory()">
+            <option value="All" selected>All</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Jewelery">Jewelery</option>
+            <option value="Men's clothing" >Men's clothing</option>
+            <option value="Women's clothing" >Women's clothing</option>    
+        </select>
 
-    </section>
-    
+    </menu>
+    <main>
+    <section id="allproducts"></section>
+    <section id="electronics"></section>
+    <section id="jewelery"></section>
+    <section id="men"></section>
+    <section id="women"></section>
+    </main>
     <a href="index.html#top" class="toTop"><b> Till toppen</b></a>
     <footer>
         <p>Copyright 2023</p>

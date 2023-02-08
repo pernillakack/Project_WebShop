@@ -14,6 +14,26 @@ header{
     justify-content: space-around;
     align-items: center;
 }
+section {
+    display: flex;
+    
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+}
+#item {
+    background-color: blanchedalmond;
+    min-width: 300px;
+    max-width: 400px;
+    margin: 20px;
+    display : flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+}
+.hide{
+    display: none;
+}
 
 .toTop {
     position: fixed;
@@ -26,23 +46,8 @@ header{
     
     
 }
-#item {
-    background-color: blanchedalmond;
-    min-width: 300px;
-    max-width: 400px;
-    margin: 20px;
-    display : flex;
-    flex-direction: column;
-    justify-content: space-between;
-   
-}
-#container {
-    display: flex;
-    
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-around;
-}
+
+
 footer{
     background-color: blanchedalmond;
     width: 96%;

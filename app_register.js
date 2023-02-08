@@ -8,11 +8,13 @@ const shippingEl = document.getElementById("shipping");
 const articleEl = document.getElementById("article"); 
 const titleEl =document.getElementById("title");
 const confirmEl = document.getElementById("confirm");
+const priceEl = document.getElementById("price");
 
 
-    articleEl.innerHTML = localStorage.getItem("product");
+    articleEl.innerHTML = localStorage.getItem("article");
     titleEl.innerHTML = localStorage.getItem("title");
-    console.log(localStorage.getItem("product", "title"));
+    priceEl.innerHTML = localStorage.getItem("price");
+    console.log(localStorage.getItem("article", "title", "price"));
 
 
 //när man skickar sin beställning
@@ -22,7 +24,7 @@ function sendOrder() {
     let email = emailEl.value;
     let adress = adressEl.value;
     let shipping = shippingEl.value;
-    let article = localStorage.getItem("product");
+    let article = localStorage.getItem("article");
     console.log(username, email, adress, shipping, article);
 
     let body = JSON.stringify({
