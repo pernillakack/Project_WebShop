@@ -47,18 +47,18 @@ function printOrder(data) {
     let order = data.fields;
     console.log(order);
 
-    localStorage.setItem("userName", order.username.stringValue);
-    localStorage.setItem("adress", order.adress.stringValue);
-    localStorage.setItem("article", order.article.integerValue);
-    localStorage.setItem("email", order.email.stringValue);
-    localStorage.setItem("shipping", order.shipping.stringValue);
-    console.log(localStorage.getItem("userName", "adress", "article", "email", "shipping"));
+    sessionStorage.setItem("userName", order.username.stringValue);
+    sessionStorage.setItem("adress", order.adress.stringValue);
+    sessionStorage.setItem("article", order.article.integerValue);
+    sessionStorage.setItem("email", order.email.stringValue);
+    sessionStorage.setItem("shipping", order.shipping.stringValue);
+    console.log(sessionStorage.getItem("userName", "adress", "article", "email", "shipping"));
 
-    userNameEl.innerHTML = "<p>Name: " + localStorage.getItem("userName") + "</p>";
-    articleEl.innerHTML = "<p>Article number: " + localStorage.getItem("article") + "</p>";
-    emailEl.innerHTML=  "<p>Email: " + localStorage.getItem("email") + "</p>";
-    adressEl.innerHTML = "<p>Adress: " + localStorage.getItem("adress") + "</p>";
-    shippingEl.innerHTML = "<p>Shipping: " + localStorage.getItem("shipping") + "</p>";
+    userNameEl.innerHTML = "<p>Name: " + sessionStorage.getItem("userName") + "</p>";
+    articleEl.innerHTML = "<p>Article number: " + sessionStorage.getItem("article") + "</p>";
+    emailEl.innerHTML=  "<p>Email: " + sessionStorage.getItem("email") + "</p>";
+    adressEl.innerHTML = "<p>Adress: " + sessionStorage.getItem("adress") + "</p>";
+    shippingEl.innerHTML = "<p>Shipping: " + sessionStorage.getItem("shipping") + "</p>";
 }
 //skickar ändringar
 function makeChanges(number){
@@ -70,30 +70,30 @@ console.log(number)
     //skriv in samtliga variabler och skicka med till sendChanges()
     switch(number) {
         case 0:
-            localStorage.setItem("userName", newUserNameEl.value);
+            sessionStorage.setItem("userName", newUserNameEl.value);
             sendChanges();
             break;
         case 1:
-            localStorage.setItem("adress", newAdressEl.value);
+            sessionStorage.setItem("adress", newAdressEl.value);
             sendChanges();
             break;
         case 2:
-            localStorage.setItem("article", newArticleEl.value);
+            sessionStorage.setItem("article", newArticleEl.value);
             sendChanges();
             break;
         case 3:
-            localStorage.setItem("email", newEmailEl.value);
+            sessionStorage.setItem("email", newEmailEl.value);
             sendChanges();
             break;
         case 4:
-            localStorage.setItem("shipping", newShippingEl.value);
+            sessionStorage.setItem("shipping", newShippingEl.value);
             sendChanges();
         case 5:
-            localStorage.setItem("userName", newUserNameEl.value);
-            localStorage.setItem("adress", newAdressEl.value);
-            localStorage.setItem("article", newArticleEl.value);
-            localStorage.setItem("email", newEmailEl.value);
-            localStorage.setItem("shipping", newShippingEl.value);
+            sessionStorage.setItem("userName", newUserNameEl.value);
+            sessionStorage.setItem("adress", newAdressEl.value);
+            sessionStorage.setItem("article", newArticleEl.value);
+            sessionStorage.setItem("email", newEmailEl.value);
+            sessionStorage.setItem("shipping", newShippingEl.value);
             sendChanges();
     }
 }   
@@ -102,15 +102,15 @@ function sendChanges() {
     let body = JSON.stringify({
         "fields": {
             "username": {
-                "stringValue": localStorage.getItem("userName")},
+                "stringValue": sessionStorage.getItem("userName")},
             "email": {
-                "stringValue": localStorage.getItem("email")},
+                "stringValue": sessionStorage.getItem("email")},
             "shipping": {
-                "stringValue": localStorage.getItem("shipping")} ,
+                "stringValue": sessionStorage.getItem("shipping")} ,
             "adress": {
-                "stringValue": localStorage.getItem("adress")},
+                "stringValue": sessionStorage.getItem("adress")},
             "article": {
-                "integerValue": localStorage.getItem("article")}    
+                "integerValue": sessionStorage.getItem("article")}    
             }            
     })
     fetch("https://firestore.googleapis.com/v1/projects/numberone-webshop/databases/(default)/documents/orders/" + sessionStorage.getItem("order"),{

@@ -11,10 +11,10 @@ const confirmEl = document.getElementById("confirm");
 const priceEl = document.getElementById("price");
 
 
-    articleEl.innerHTML = localStorage.getItem("article");
-    titleEl.innerHTML = localStorage.getItem("title");
-    priceEl.innerHTML = localStorage.getItem("price");
-    console.log(localStorage.getItem("article", "title", "price"));
+    articleEl.innerHTML = sessionStorage.getItem("article");
+    titleEl.innerHTML = sessionStorage.getItem("title");
+    priceEl.innerHTML = sessionStorage.getItem("price");
+    console.log(sessionStorage.getItem("article", "title", "price"));
 
 
 //när man skickar sin beställning
@@ -24,7 +24,7 @@ function sendOrder() {
     let email = emailEl.value;
     let adress = adressEl.value;
     let shipping = shippingEl.value;
-    let article = localStorage.getItem("article");
+    let article = sessionStorage.getItem("article");
     console.log(username, email, adress, shipping, article);
 
     let body = JSON.stringify({
@@ -68,7 +68,7 @@ function confirmation(data) {
     confirmEl.innerHTML = 
         `Your order has been registered.<br>Please note your ordernumber: '${ordernr}';`
 
-    localStorage.clear();
+    sessionStorage.clear();
 }
 
 orderButtonEl.addEventListener('click', sendOrder);

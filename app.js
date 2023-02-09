@@ -160,10 +160,10 @@ function showWomen(products) {
 
 //när man väljer en produkt man vill köpa
 function buyProduct(id, title, price){
-    localStorage.setItem("article", id );
-    localStorage.setItem("title", title);
-    localStorage.setItem("price", price);
-    console.log(localStorage.getItem("title"));
+    sessionStorage.setItem("article", id );
+    sessionStorage.setItem("title", title);
+    sessionStorage.setItem("price", price);
+    console.log(sessionStorage.getItem("title"));
     
 }
 
