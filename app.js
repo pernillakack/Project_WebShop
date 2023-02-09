@@ -152,7 +152,7 @@ function showWomen(products) {
         <h4>'${items.description}'</h4><br>
         <h5>Rating: '${items.rating.rate}' Count: '${items.rating.count}'</h5>
         <h6>€ = '${items.price}'</h6><br>
-        <input type='button' id='buyButton' class='btn btn-secondary' value='Buy' onclick='buyProduct("${items.id}","${items.title}","${items.price}")'>
+        <input type='button' id='buyButton' class='btn btn-secondary' value='Buy' onclick='buyProduct("${items.id}","${items.title}","${items.price}" )'>
         </article><hr>
         `
     }
