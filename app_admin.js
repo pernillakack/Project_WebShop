@@ -11,6 +11,11 @@ const adressEl = document.getElementById("adress");
 const shippingEl = document.getElementById("shipping");
 const changeButtonEl = document.getElementById("changeButton");
 const deleteButtonEl =document.getElementById("deleteButton");
+const changeNameEl = document.getElementById("changeName");
+const changeEmailEl = document.getElementById("changeEmail");
+const changeAdressEl = document.getElementById("changeAdress");
+const changeArticleEl = document.getElementById("changeArticle");
+const changeShippingEl = document.getElementById("changeShipping");
 
 const newUserNameEl = document.getElementById("newUserName");
 const newArticleEl= document.getElementById("newArticle");
@@ -41,45 +46,71 @@ function printOrder(data) {
     console.log(data);
     let order = data.fields;
     console.log(order);
-    let userName = order.username.stringValue;
-    let article = order.article.integerValue;
-    let email = order.email.stringValue;
-    let adress = order.adress.stringValue;
-    let shipping = order.shipping.stringValue;
-    
 
-    userNameEl.innerHTML = "<p>Name: " +userName + "</p>";
-    articleEl.innerHTML = "<p>Article number: " + article + "</p>";
-    emailEl.innerHTML=  "<p>Email: " + email + "</p>";
-    adressEl.innerHTML = "<p>Adress: " + adress + "</p>";
-    shippingEl.innerHTML = "<p>Shipping: "+ shipping+ "</p>";
-    
+    localStorage.setItem("userName", order.username.stringValue);
+    localStorage.setItem("adress", order.adress.stringValue);
+    localStorage.setItem("article", order.article.integerValue);
+    localStorage.setItem("email", order.email.stringValue);
+    localStorage.setItem("shipping", order.shipping.stringValue);
+    console.log(localStorage.getItem("userName", "adress", "article", "email", "shipping"));
+
+    userNameEl.innerHTML = "<p>Name: " + localStorage.getItem("userName") + "</p>";
+    articleEl.innerHTML = "<p>Article number: " + localStorage.getItem("article") + "</p>";
+    emailEl.innerHTML=  "<p>Email: " + localStorage.getItem("email") + "</p>";
+    adressEl.innerHTML = "<p>Adress: " + localStorage.getItem("adress") + "</p>";
+    shippingEl.innerHTML = "<p>Shipping: " + localStorage.getItem("shipping") + "</p>";
 }
 //skickar ändringar
-function sendChanges(){
+function makeChanges(number){
+console.log(number)
+     number; 
+     
+     
     
-    let newUserName = newUserNameEl.value;
-    console.log(newUserName);
-    let newArticle= newArticleEl.value;
-    let newEmail = newEmailEl.value;
-    let newAdress = newAdressEl.value;
-    let newShipping = newShippingEl.value;
-    console.log(newUserName, newArticle, newEmail, newAdress, newShipping);
-   
-
+    //skriv in samtliga variabler och skicka med till sendChanges()
+    switch(number) {
+        case 0:
+            localStorage.setItem("userName", newUserNameEl.value);
+            sendChanges();
+            break;
+        case 1:
+            localStorage.setItem("adress", newAdressEl.value);
+            sendChanges();
+            break;
+        case 2:
+            localStorage.setItem("article", newArticleEl.value);
+            sendChanges();
+            break;
+        case 3:
+            localStorage.setItem("email", newEmailEl.value);
+            sendChanges();
+            break;
+        case 4:
+            localStorage.setItem("shipping", newShippingEl.value);
+            sendChanges();
+        case 5:
+            localStorage.setItem("userName", newUserNameEl.value);
+            localStorage.setItem("adress", newAdressEl.value);
+            localStorage.setItem("article", newArticleEl.value);
+            localStorage.setItem("email", newEmailEl.value);
+            localStorage.setItem("shipping", newShippingEl.value);
+            sendChanges();
+    }
+}   
+function sendChanges() {
 
     let body = JSON.stringify({
         "fields": {
             "username": {
-                "stringValue": newUserName},
+                "stringValue": localStorage.getItem("userName")},
             "email": {
-                "stringValue": newEmail},
+                "stringValue": localStorage.getItem("email")},
             "shipping": {
-                "stringValue": newShipping} ,
+                "stringValue": localStorage.getItem("shipping")} ,
             "adress": {
-                "stringValue": newAdress},
+                "stringValue": localStorage.getItem("adress")},
             "article": {
-                "integerValue": newArticle}    
+                "integerValue": localStorage.getItem("article")}    
             }            
     })
     fetch("https://firestore.googleapis.com/v1/projects/numberone-webshop/databases/(default)/documents/orders/" + sessionStorage.getItem("order"),{
@@ -130,5 +161,5 @@ function confirmDelete(data) {
 }
 
 getOrderEl.addEventListener('click', getOrder);
-changeButtonEl.addEventListener('click', sendChanges);
+changeButtonEl.addEventListener('click', makeChanges);
 deleteButtonEl.addEventListener('click', deleteOrder);

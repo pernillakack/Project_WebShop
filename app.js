@@ -44,11 +44,11 @@ function chooseCategory(){
             fetch("https://fakestoreapi.com/products/category/electronics")
             .then(res=> res.json())
             .then(data=> showElectronics(data));
-        itemEl.classList.add("hide");
-        jeweleryEl.classList.add("hide");
-        menEl.classList.add("hide");
-        womenEl.classList.add("hide");
-        electronicsEl.classList.remove("hide");    
+            itemEl.classList.add("hide");
+            jeweleryEl.classList.add("hide");
+            menEl.classList.add("hide");
+            womenEl.classList.add("hide");
+            electronicsEl.classList.remove("hide");    
         break;
         case "Jewelery":
             fetch("https://fakestoreapi.com/products/category/jewelery")
@@ -74,12 +74,12 @@ function chooseCategory(){
             fetch("https://fakestoreapi.com/products/category/women's clothing")
             .then(res=> res.json())
             .then(data=> showWomen(data));
-        itemEl.classList.add("hide");
-        jeweleryEl.classList.add("hide");
-        electronicsEl.classList.add("hide");
-        menEl.classList.add("hide"); 
-        womenEl.classList.remove("hide");   
-        break;
+            itemEl.classList.add("hide");
+            jeweleryEl.classList.add("hide");
+            electronicsEl.classList.add("hide");
+            menEl.classList.add("hide"); 
+            womenEl.classList.remove("hide");   
+            break;
             case "All":
                 menEl.classList.add("hide");
                 jeweleryEl.classList.add("hide");
