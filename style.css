@@ -38,6 +38,25 @@ section {
     display: none;
 }
 
+#register{
+    background-color: blanchedalmond;
+    border-style: solid;
+    border-color: coral;
+    min-width: 300px;
+    max-width: 400px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#order{
+    display : flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .toTop {
     position: fixed;
     cursor: pointer;

@@ -21,13 +21,18 @@
 
     <h4>First you need to fill out the following form:</h4><br>
 
+    <section id="order">
     <form id="register">
+        <label for="name">Your name:</label>
         <input type="text" name="userName" id="userName" required placeholder="Type your name..."><br>
         <br>
+        <label for="email">Your email:</label>
         <input type="email" name="email" id="email" required placeholder="Type your email...">
         <br><br>
+        <label for="adress">Your adress:</label>
         <input type="text" name="adress" id="adress" required placeholder="Type your adress...">
         <br><br>
+        <label for="shipping">Shipping:</label>
         <select name="shipping" id="shipping" required>
             <option value="Choose" value disabled selected>Choose</option>
             <option value="Express">Express</option>
@@ -39,6 +44,7 @@
     </form>
     <br><br>
     <h5 id="confirm"></h5>
+    </section>
 
         <footer>
             <p>Copyright 2023</p>
