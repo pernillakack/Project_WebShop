@@ -9,33 +9,35 @@
     <title>Administration</title>
 </head>
 <body>
+    <header>
     <h1>Administration</h1>
     <br>
-    <a href="index.html">Back to shop</a><br>
-    <a href="register.html">Register</a>
+    <a href="index.html" class="link-dark">Back to shop</a><br>
+    <a href="register.html" class="link-dark">Register</a>
     <br><br>
-
+    </header>  
+    <section id="order">
     <form>
         <input type="text" name="orderNumber" id="orderNumber" placeholder="Insert ordernumber...">
         <br><br>
         <input type="button" value="Get order" id="getOrder">
     </form>
 
-    <form id="showOrder">
+    <form id="showOrder" class="register">
         <p id="userName"></p>
-        <input type='text' name='newUserName' id='newUserName' required placeholder='Type the new name...'>
+        <input type='text' name='newUserName' id='newUserName' placeholder='Type the new name...' required>
         <input type='button' name ='changeName' id='changeName' onclick="makeChanges(0)" value='Change name'>
         <br><br>
         <p id="article"></p>
-        <input type='number' name = 'newArticle' id= 'newArticle' required placeholder="Type the new articlenr...">
+        <input type='number' name = 'newArticle' id= 'newArticle' placeholder="Type the new articlenr..." required>
         <input type='button' name ='changeArticle' id='changeArticle' onclick="makeChanges(2)" value='Change articlenr'>
         <br><br>
         <p id="email"></p>
-        <input type='email' name='newEmail' id='newEmail' required placeholder='Type the new email...'>
+        <input type='email' name='newEmail' id='newEmail' placeholder='Type the new email...' required>
         <input type='button' name ='changeEmail' id='changeEmail' onclick="makeChanges(3)" value='Change email'>
         <br><br>
         <p id="adress"></p>
-        <input type='text' name='newAdress' id='newAdress' required placeholder='Type your adress...'>
+        <input type='text' name='newAdress' id='newAdress' placeholder='Type your adress...' required>
         <input type='button' name ='changeAdress' id='changeAdress' onclick="makeChanges(1)" value='Change adress'>
         <br><br>
         <p id="shipping"></p>
@@ -47,12 +49,14 @@
         </select>
         <input type='button' name ='changeShipping' id='changeShipping' onclick="makeChanges(4)" value='Change shipping'>
         <br><br>
-        <input type='button' name ='changeButton' id='changeButton' onclick="makeChanges(5)" value='Submit changes'>
+        <input type='button' name ='changeButton' id='changeButton' onclick="makeChanges(5)" value='Submit ALL changes'>
         <br><br>
         <input type='submit' name='deleteButton' id='deleteButton' value='Delete order'>
     </form>
-    <section id ="confirmChanges"></section>
-    <section id ="confirmDelete"></section>
+    
+    <article id ="confirmChanges"></article>
+    <article id ="confirmDelete"></article>
+    </section>
     <footer>
         <p>Copyright 2023</p>
     </footer>
