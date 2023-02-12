@@ -57,7 +57,7 @@ section {
     align-items: center;
 }
 
-.toTop {
+#toTop {
     position: fixed;
     cursor: pointer;
     bottom: 80px;

@@ -18,12 +18,13 @@
     </header>  
     <section id="order">
     <form>
+        <label for="orderNumber">Insert ordernumber to change or delete order:</label><br>
         <input type="text" name="orderNumber" id="orderNumber" placeholder="Insert ordernumber...">
         <br><br>
         <input type="button" value="Get order" id="getOrder">
     </form>
 
-    <form id="showOrder" class="register" aria-required="true">
+    <form id="showOrder" class="register">
         <p id="userName"></p>
         <input type='text' name='newUserName' id='newUserName' placeholder='Type the new name...' required>
         <input type='button' name ='changeName' id='changeName' onclick="makeChanges(0)" value='Change name'>
@@ -42,7 +43,7 @@
         <br><br>
         <p id="shipping"></p>
         <select name="newShipping" id="newShipping" required>
-            <option value="Choose" value disabled selected>Choose</option>
+            <option value="Choose" disabled selected>Choose</option>
             <option value="Express">Express</option>
             <option value="Mail">Mail</option>
             <option value="Get in store">Get in store</option>
