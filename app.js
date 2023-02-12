@@ -166,12 +166,12 @@ function buyProduct(items_id, items_title){
     title.push(items_title);
     console.log(id, title);
 
-    sessionStorage.setItem("article", JSON.stringify(id));
-    sessionStorage.setItem("title", JSON.stringify(title));
+    localStorage.setItem("article", JSON.stringify(id));
+    localStorage.setItem("title", JSON.stringify(title));
 
 
-    console.log(sessionStorage.getItem("article"));
-    console.log(sessionStorage.getItem("title"));
+    console.log(localStorage.getItem("article"));
+    console.log(localStorage.getItem("title"));
     
     console.log(id, title);
 }

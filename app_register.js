@@ -5,35 +5,23 @@ const userNameEl = document.getElementById("userName");
 const emailEl = document.getElementById("email");  
 const adressEl = document.getElementById("adress"); 
 const shippingEl = document.getElementById("shipping");
-const idEl = document.getElementsByClassName("id"); 
-const titleEl =document.getElementsByClassName("title");
+const idEl = document.getElementById("id"); 
+const titleEl =document.getElementById("title");
 const confirmEl = document.getElementById("confirm");
-const emptyEl = document.getElementById("empty");
 const registerEl = document.getElementsByClassName("register");
 
-let storedArticle = sessionStorage.getItem("article");
-let storedTitle = sessionStorage.getItem("title");
+let storedArticle = localStorage.getItem("article");
+let storedTitle = localStorage.getItem("title");
 let article = storedArticle.toString();
 
 let id2 = JSON.parse(storedArticle);
 let title2 = JSON.parse(storedTitle);
 console.log(storedArticle);
+console.log(id2);
 
-for(let i=0; i<id2.length; i++) {
-    if(id2[i]>0) {
-    idEl.innerHTML += "<td>" +id2[i]+"</td>";
-    console.log(id2[i]);
-    for(let j=0; j<title2.length; j++) {
-        titleEl.innerHTML += "<td>" +title2[j]+ "</td>";
-        console.log(title2[j]);
-    }
-    }
-    else {
-        emptyEl.innerHTML = "You haven't chosen any articles yet.";
-    }
+for(let i=0; i<article.length; i++) {
+    idEl.innerHTML += article[i];
 }
-
-
 
     
 //när man skickar sin beställning
@@ -92,7 +80,7 @@ function confirmation(data) {
     confirmEl.innerHTML = 
         `Your order has been registered.<br>Please note your ordernumber: '${ordernr}';`
 
-    sessionStorage.clear();
+    localStorage.clear();
 
 }
 

@@ -24,7 +24,7 @@ const newAdressEl = document.getElementById("newAdress");
 const newShippingEl = document.getElementById("newShipping");
 
 const confirmChangesEl = document.getElementById("confirmChanges");
-const confirmDeleteEl = document.getElementById("confirmDelete");
+
 
 
 
@@ -63,10 +63,6 @@ function printOrder(data) {
 //skickar ändringar
 function makeChanges(number){
 console.log(number)
-     number; 
-     
-     
-    
     //skriv in samtliga variabler och skicka med till sendChanges()
     switch(number) {
         case 0:
@@ -132,7 +128,7 @@ function confirmChanges(data) {
     let adress = change.adress.stringValue;
     let shipping = change.shipping.stringValue;
     let article = change.article.stringValue;
-    console.log(name,email,adress, shipping,article);
+    console.log(name,email,adress,shipping,article);
 
     confirmChangesEl.innerHTML = `
         <p>The order with ordernumber '${sessionStorage.getItem("order")}' has been changed.<br>
@@ -155,7 +151,7 @@ function deleteOrder() {
 
 function confirmDelete(data) {
     console.log(data);
-    confirmDeleteEl.innerHTML =
+    confirmChangesEl.innerHTML =
         "<p>Ordernumber " + sessionStorage.getItem("order") + " has been successfully deleted.</p>"
 
 }
