@@ -49,7 +49,7 @@ function printOrder(data) {
 
     sessionStorage.setItem("userName", order.username.stringValue);
     sessionStorage.setItem("adress", order.adress.stringValue);
-    sessionStorage.setItem("article", order.article.integerValue);
+    sessionStorage.setItem("article", order.article.stringValue);
     sessionStorage.setItem("email", order.email.stringValue);
     sessionStorage.setItem("shipping", order.shipping.stringValue);
     console.log(sessionStorage.getItem("userName", "adress", "article", "email", "shipping"));
@@ -110,7 +110,7 @@ function sendChanges() {
             "adress": {
                 "stringValue": sessionStorage.getItem("adress")},
             "article": {
-                "integerValue": sessionStorage.getItem("article")}    
+                "stringValue": sessionStorage.getItem("article")}    
             }            
     })
     fetch("https://firestore.googleapis.com/v1/projects/numberone-webshop/databases/(default)/documents/orders/" + sessionStorage.getItem("order"),{
@@ -131,7 +131,7 @@ function confirmChanges(data) {
     let email = change.email.stringValue;
     let adress = change.adress.stringValue;
     let shipping = change.shipping.stringValue;
-    let article = change.article.integerValue;
+    let article = change.article.stringValue;
     console.log(name,email,adress, shipping,article);
 
     confirmChangesEl.innerHTML = `

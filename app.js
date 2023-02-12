@@ -9,12 +9,12 @@ const womenEl = document.getElementById("women");
 const buyButtonEl = document.getElementById("buyButton");
 const categoryEl = document.getElementById("category");
 
+let id = [];
+let title = [];
 
 fetch("https://fakestoreapi.com/products")
 .then(res=> res.json())
 .then(data=> showAllProducts(data));
-
-
 
 function showAllProducts(products) {
     console.log(products);
@@ -28,7 +28,7 @@ function showAllProducts(products) {
         <h4>'${items.description}'</h4><br>
         <h5>Rating: '${items.rating.rate}' Count: '${items.rating.count}'</h5><br>
         <h6>€ = '${items.price}'</h6><br>
-        <input type='button' id='buyButton' class='btn btn-secondary' value='Buy' onclick='buyProduct("${items.id}","${items.title}","${items.price}")'>
+        <input type='button' id='buyButton' class='btn btn-secondary' value='Buy' onclick='buyProduct("${items.id}","${items.title.replace("'", "")}")'>
         </article><hr>
         `
     
@@ -100,7 +100,7 @@ function showElectronics(products) {
         <h4>'${items.description}'</h4><br>
         <h5>Rating: '${items.rating.rate}' Count: '${items.rating.count}'</h5>
         <h6>€ = '${items.price}'</h6><br>
-        <input type='button' id='buyButton' class='btn btn-secondary' value='Buy' onclick='buyProduct("${items.id}","${items.title}","${items.price}")'>
+        <input type='button' id='buyButton' class='btn btn-secondary' value='Buy' onclick='buyProduct("${items.id}","${items.title.replace("'", "")}")'>
         </article><hr>
         `
     
@@ -118,7 +118,7 @@ function showJewelery(products) {
         <h4>'${items.description}'</h4><br>
         <h5>Rating: '${items.rating.rate}' Count: '${items.rating.count}'</h5>
         <h6>€ = '${items.price}'</h6><br>
-        <input type='button' id='buyButton' class='btn btn-secondary' value='Buy' onclick='buyProduct("${items.id}","${items.title}","${items.price}")'>
+        <input type='button' id='buyButton' class='btn btn-secondary' value='Buy' onclick='buyProduct("${items.id}","${items.title.replace("'", "")}")'>
         </article><hr>
         `
     }
@@ -135,7 +135,7 @@ function showMen(products) {
         <h4>'${items.description}'</h4><br>
         <h5>Rating: '${items.rating.rate}' Count: '${items.rating.count}'</h5>
         <h6>€ = '${items.price}'</h6><br>
-        <input type='button' id='buyButton' class='btn btn-secondary' value='Buy' onclick='buyProduct("${items.id}","${items.title}","${items.price}")'>
+        <input type='button' id='buyButton' class='btn btn-secondary' value='Buy' onclick='buyProduct("${items.id}","${items.title.replace("'", "")}")'>
         </article><hr>
         `
     }
@@ -152,20 +152,29 @@ function showWomen(products) {
         <h4>'${items.description}'</h4><br>
         <h5>Rating: '${items.rating.rate}' Count: '${items.rating.count}'</h5>
         <h6>€ = '${items.price}'</h6><br>
-        <input type='button' id='buyButton' class='btn btn-secondary' value='Buy' onclick='buyProduct("${items.id}","${items.title}","${items.price}" )'>
+        <input type='button' id='buyButton' class='btn btn-secondary' value='Buy' onclick='buyProduct("${items.id}","${items.title.replace("'", "")}")'>
         </article><hr>
         `
     }
 }
 
 //när man väljer en produkt man vill köpa
-function buyProduct(id, title, price){
-    sessionStorage.setItem("article", id );
-    sessionStorage.setItem("title", title);
-    sessionStorage.setItem("price", price);
+function buyProduct(items_id, items_title){
+
+    
+    id.push(items_id);
+    title.push(items_title);
+    console.log(id, title);
+
+    sessionStorage.setItem("article", JSON.stringify(id));
+    sessionStorage.setItem("title", JSON.stringify(title));
+
+
+    console.log(sessionStorage.getItem("article"));
     console.log(sessionStorage.getItem("title"));
     
+    console.log(id, title);
 }
 
 
-buyButtonEl.addEventListener('click', buyProduct);
+

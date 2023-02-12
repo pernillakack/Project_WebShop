@@ -17,12 +17,22 @@
         <a href="admin.html" class="link-dark">Administration</a>
         <br><br>
     </header>   
-    <h3>You want to buy the following article number: <p id="article"> </p> <p id="title"></p><p id="price"></p></h3>
-
+    <h3>You want to buy the following article number: </h3>
+    <table>
+        <tr>
+            <th>Articlenumber:</th>
+            <th>Title:</th>
+        </tr>
+        <tr>
+            <td class="id"></td>
+            <td class="title"></td>
+        </tr>
+    </table>
+    <p id="empty"></p>
     <h4>First you need to fill out the following form:</h4><br>
 
     <section id="order">
-    <form class="register">
+    <form aria-required="true" class="register">
         <label for="name">Your name:</label>
         <input type="text" name="userName" id="userName" required placeholder="Type your name..."><br>
         <br>
@@ -42,6 +52,7 @@
         <br><br>
         <input type="button" name="orderButton" id="orderButton" value="Send"> 
     </form>
+    
     <br><br>
     <h5 id="confirm"></h5>
     </section>

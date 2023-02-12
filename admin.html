@@ -23,13 +23,13 @@
         <input type="button" value="Get order" id="getOrder">
     </form>
 
-    <form id="showOrder" class="register">
+    <form id="showOrder" class="register" aria-required="true">
         <p id="userName"></p>
         <input type='text' name='newUserName' id='newUserName' placeholder='Type the new name...' required>
         <input type='button' name ='changeName' id='changeName' onclick="makeChanges(0)" value='Change name'>
         <br><br>
         <p id="article"></p>
-        <input type='number' name = 'newArticle' id= 'newArticle' placeholder="Type the new articlenr..." required>
+        <input type='text' name = 'newArticle' id= 'newArticle' placeholder="Type the new articlenr..." required>
         <input type='button' name ='changeArticle' id='changeArticle' onclick="makeChanges(2)" value='Change articlenr'>
         <br><br>
         <p id="email"></p>
