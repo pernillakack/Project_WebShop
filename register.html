@@ -32,17 +32,17 @@
     <h4>First you need to fill out the following form:</h4><br>
 
     <section id="order">
-    <form aria-required="true" class="register">
-        <label for="name">Your name:</label>
+    <form class="register" aria-required="true">
+        <label for="userName">Your name: (required)</label>
         <input type="text" name="userName" id="userName" required placeholder="Type your name..."><br>
         <br>
-        <label for="email">Your email:</label>
+        <label for="email">Your email: (required)</label>
         <input type="email" name="email" id="email" required placeholder="Type your email...">
         <br><br>
-        <label for="adress">Your adress:</label>
+        <label for="adress">Your adress: (required)</label>
         <input type="text" name="adress" id="adress" required placeholder="Type your adress...">
         <br><br>
-        <label for="shipping">Shipping:</label>
+        <label for="shipping">Shipping: (required)</label>
         <select name="shipping" id="shipping" required>
             <option value="Choose" value disabled selected>Choose</option>
             <option value="Express">Express</option>
@@ -51,6 +51,7 @@
         </select>
         <br><br>
         <input type="button" name="orderButton" id="orderButton" value="Send"> 
+       
     </form>
     
     <br><br>

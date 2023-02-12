@@ -9,6 +9,7 @@ const idEl = document.getElementsByClassName("id");
 const titleEl =document.getElementsByClassName("title");
 const confirmEl = document.getElementById("confirm");
 const emptyEl = document.getElementById("empty");
+const registerEl = document.getElementsByClassName("register");
 
 let storedArticle = sessionStorage.getItem("article");
 let storedTitle = sessionStorage.getItem("title");
@@ -37,15 +38,19 @@ for(let i=0; i<id2.length; i++) {
     
 //när man skickar sin beställning
 function sendOrder() {
-    // if(required === "false") {
-    //     alert("You need to fill in all fields!");
-    // }
+    
     let username = userNameEl.value;
     let email = emailEl.value;
     let adress = adressEl.value;
     let shipping = shippingEl.value;
     
     console.log(username, email, adress, shipping, article);
+
+    if(username == ""|| email == "" || adress == "" || shipping == "Choose") {
+        alert("You need to fill in all fields!");
+        return false;
+    }
+    else {
 
     let body = JSON.stringify({
         
@@ -74,7 +79,7 @@ function sendOrder() {
         .then(data=> confirmation(data));
 
     
-}
+}}
 //skriver ut en konfirmation om att beställningen registrerats
 function confirmation(data) {
     
@@ -88,6 +93,7 @@ function confirmation(data) {
         `Your order has been registered.<br>Please note your ordernumber: '${ordernr}';`
 
     sessionStorage.clear();
+
 }
 
 orderButtonEl.addEventListener('click', sendOrder);
